@@ -1,0 +1,27 @@
+%{
+#include<stdio.h>
+int ch=0,w=0,l=0,bl=0;
+%}
+
+
+%%
+[^\t\n]+   {w++,ch+=yyleng;}
+[\n]       {li++;}
+[ ]        {bl++;}
+%%
+
+
+int main(int argc,char * argv[])
+{
+ if(argc==2)
+ {
+  yyin=fopen(argv[1],"r");
+  yylex();
+  printf("no of charracters +%d ,word =%d,line =%d,blank =%d",ch,w,b,bl);
+ }
+ else
+ {
+  printf("usage file");
+  return 0;
+ }
+}   
